@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cassandra-loader.iml" filepath="$PROJECT_DIR$/.idea/cassandra-loader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cassandra-loader_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cassandra-loader_main.iml" group="cassandra-loader" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cassandra-loader_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cassandra-loader_test.iml" group="cassandra-loader" />
+    </modules>
+  </component>
+</project>

@@ -19,17 +19,10 @@ import com.datastax.loader.parser.BooleanParser;
 import com.datastax.loader.futures.FutureManager;
 import com.datastax.loader.futures.PrintingFutureSet;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Deque;
-import java.util.ArrayDeque;
-import java.util.Comparator;
-import java.util.Arrays;
-import java.util.Locale;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Callable;
@@ -684,12 +677,20 @@ public class CqlDelimLoad {
         return true;
     }
 
+    public static void createCsvFiles(){
+
+    }
+
     public static void main(String[] args) 
         throws IOException, ParseException, InterruptedException, ExecutionException, 
                KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, 
                CertificateException, KeyManagementException {
+
+        System.out.println(LocalDateTime.now());
         CqlDelimLoad cdl = new CqlDelimLoad();
         boolean success = cdl.run(args);
+        System.out.println(LocalDateTime.now());
+
         if (success) {
             System.exit(0);
         } else {

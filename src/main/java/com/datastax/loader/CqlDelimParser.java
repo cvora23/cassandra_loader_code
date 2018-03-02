@@ -22,26 +22,7 @@ import com.datastax.driver.core.Session;
 import com.datastax.driver.core.TableMetadata;
 import com.datastax.driver.core.KeyspaceMetadata;
 import com.datastax.driver.core.exceptions.InvalidTypeException;
-import com.datastax.loader.parser.BigDecimalParser;
-import com.datastax.loader.parser.BigIntegerParser;
-import com.datastax.loader.parser.BooleanParser;
-import com.datastax.loader.parser.ByteBufferParser;
-import com.datastax.loader.parser.ByteParser;
-import com.datastax.loader.parser.DateParser;
-import com.datastax.loader.parser.DelimParser;
-import com.datastax.loader.parser.DoubleParser;
-import com.datastax.loader.parser.FloatParser;
-import com.datastax.loader.parser.InetAddressParser;
-import com.datastax.loader.parser.IntegerParser;
-import com.datastax.loader.parser.ListParser;
-import com.datastax.loader.parser.LocalDateParser;
-import com.datastax.loader.parser.LongParser;
-import com.datastax.loader.parser.MapParser;
-import com.datastax.loader.parser.Parser;
-import com.datastax.loader.parser.SetParser;
-import com.datastax.loader.parser.ShortParser;
-import com.datastax.loader.parser.StringParser;
-import com.datastax.loader.parser.UUIDParser;
+import com.datastax.loader.parser.*;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -132,6 +113,7 @@ public class CqlDelimParser {
         Parser inetAddressParser = new InetAddressParser();
         Parser dateParser = new DateParser(dateFormatString);
         Parser localDateParser = new LocalDateParser(localDateFormatString);
+        Parser tupleParser = new TupleParser(integerParser, longParser, '(', ')', ',');
 
         pmap.put(DataType.Name.ASCII, stringParser);
         pmap.put(DataType.Name.BIGINT, longParser);
@@ -153,6 +135,7 @@ public class CqlDelimParser {
         pmap.put(DataType.Name.UUID, uuidParser);
         pmap.put(DataType.Name.VARCHAR, stringParser);
         pmap.put(DataType.Name.VARINT, bigIntegerParser);
+        pmap.put(DataType.Name.TUPLE,tupleParser);
 
     }
 

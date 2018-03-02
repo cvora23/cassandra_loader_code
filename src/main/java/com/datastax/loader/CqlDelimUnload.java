@@ -348,6 +348,11 @@ public class CqlDelimUnload {
             throw new IOException("Could not create cluster");
         }
         session = cluster.connect();
+        if(null != session){
+            // Register the new codec
+            MyBigIntCodec myBigIntCodec = new MyBigIntCodec();
+            cluster.getConfiguration().getCodecRegistry().register(myBigIntCodec);
+        }
     }
 
     private void cleanup() {

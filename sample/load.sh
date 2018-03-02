@@ -1,1 +1,2 @@
-../build/cassandra-loader -f titanic.csv -host localhost -schema "titanic.survivors(id, survived, passenger_class, name, sex, age, num_siblings_spouse, num_parents_children, ticket_id, fare, cabin, port_of_embarkation)" -boolStyle 1_0
+#!/usr/bin/env bash
+../build/cassandra-loader -host 10.94.153.21 -f cos_goid_out.csv -schema "cos.goid(goid, id, isopen, objects, resgrp)" -boolStyle TRUE_FALSE
